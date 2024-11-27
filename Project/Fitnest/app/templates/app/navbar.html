@@ -1,0 +1,26 @@
+
+<header>
+    <style>
+        .hello-msg{
+        font-size: 20px;
+        color: #f3dfce;
+        }
+        </style>
+
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'blog' %}">Blog</a>
+    <a href="{% url 'Video_list' %}">Videos</a>
+    <a href="{% url 'Contact' %}">Contact</a>
+    <a href="{% url 'class_schedule' %}">ClassSched</a>
+
+    {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn-primary">Logout</button>
+    </form>
+{% else %}
+    <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
+{% endif %}
+</header>

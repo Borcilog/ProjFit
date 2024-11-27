@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h1>Class Schedule</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Trainer</th>
+            <th>Date & Time</th>
+            <th>Available Spots</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ schedule.gym_class.name }}</td>
+            <td>{{ schedule.trainer.user.username }}</td>
+            <td>{{ schedule.date_time }}</td>
+            <td>{{ schedule.spots_available }}</td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

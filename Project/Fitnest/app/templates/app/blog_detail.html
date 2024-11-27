@@ -1,0 +1,16 @@
+{%  extends 'app/base.html' %}
+{% load static %}
+{% block content%}
+
+        <div class="post-entry">
+            <h2><a href="">{{post.title}}</a></h2>
+            {% if post.header_image %}
+            <img src="{{post.header_image.url}}" alt="Description" class="responsive-image">
+            {% endif %}
+            <br/><br/>
+            <p>{{post.body}}</p>
+        </div>
+        <a href="{% url 'blog_update' post.pk %}" style="position: absolute; left: 4rem;"> EDIT BLOG POST </a>
+        
+        <a href="{% url 'blog_delete' post.pk %}"style="position: absolute; right: 4rem;"> DELETE POST </a>
+{% endblock content %}
